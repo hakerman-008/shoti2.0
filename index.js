@@ -29,7 +29,7 @@ async function fetchDataWithRetry(username, retries = 2) {
       },
       data: {
         username: `@${username}`,
-        amount_of_posts: 500
+        amount_of_posts: 5
       }
     };
 
@@ -67,7 +67,7 @@ app.get('/kshitiz', async (req, res) => {
     res.json(responseData);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(5).json({ error: 'Internal server error' });
   }
 });
 
