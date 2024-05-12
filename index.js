@@ -47,18 +47,20 @@ async function fetchDataWithRetry(username, retries = 2) {
     }
   }
 }
-
+app.get('/', (req, res) => {
+  res.send('shoti api');
+});
 app.get('/kshitiz', async (req, res) => {
   try {
     const username = getRandomUsername();
 
-    
+
     let posts = await fetchDataWithRetry(username);
     if (!posts || posts.every(post => post.length === 0)) {
       posts = await fetchDataWithRetry(username);
     }
 
-    
+
     const responseData = {
       user: username,
       posts: posts
